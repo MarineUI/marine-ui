@@ -5,11 +5,18 @@
 
 ## Usage
 
-TODO
+```
+pnpm i
+pnpm run dev
+pnpm run build
+```
 
 ## Options
 
-TODO
+- 样式
+  - 引号：单引号
+  - 缩进：两空格
+  - Trailing Commas：es5
 
 ## Development
 
