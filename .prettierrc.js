@@ -7,7 +7,7 @@ module.exports = {
   printWidth: 80,
   proseWrap: 'never',
   singleQuote: true,
-  trailingComma: 'all',
+  trailingComma: 'es5',
   overrides: [
     {
       files: '*.md',
