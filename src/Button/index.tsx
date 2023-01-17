@@ -1,11 +1,11 @@
 import React from 'react';
+import { ButtonProps } from './interface';
+import { ButtonStyle } from './style';
 
-interface Props {
-  text: string;
-}
+const MyButton = (props: ButtonProps) => {
+  const { children } = props;
 
-const Button: React.FC<Props> = ({ text }) => {
-  return <button type="button">{text}</button>;
+  return <ButtonStyle props={props}>{children}</ButtonStyle>;
 };
 
-export default Button;
+export default MyButton;
