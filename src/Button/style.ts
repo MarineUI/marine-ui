@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { ButtonProps, sizeProps } from './interface';
+
 enum defaultConfig {
   ButtonColor = '#4e67f2',
   TextColor = '#fff',
@@ -7,12 +8,14 @@ enum defaultConfig {
   paddingL = '1.5em',
   paddingH = '0.5em',
 }
+
 const colorMap = new Map<string, string>([
   ['primary', '#4e67f2'],
   ['secondary', '#9748da'],
   ['success', '#50c969'],
   ['warn', '#e7ab35'],
 ]);
+
 const sizeMap = new Map<string, sizeProps>([
   [
     'xs',
@@ -55,11 +58,13 @@ const getColor = (color: string): string => {
   }
   return color;
 };
+
 const getSize = (size: string, type: string): string | undefined => {
   const isEnum = sizeMap.get(size);
   if (isEnum === undefined) return;
-  return isEnum[type];
+  return isEnum[type as keyof sizeProps];
 };
+
 export const ButtonStyle = styled.span<{ props: ButtonProps }>`
   background-color: ${({ props }) =>
     props.type ? getColor(props.type) : defaultConfig.ButtonColor};
