@@ -13,6 +13,7 @@ const colorMap = new Map<string, string>([
   ['success', '#50c969'],
   ['warn', '#e7ab35'],
 ]);
+
 const sizeMap = new Map<string, sizeProps>([
   [
     'xs',
@@ -70,6 +71,7 @@ const getSize = (size: string, type: string): string | undefined => {
   if (isEnum === undefined) return defaultConfig.get(type);
   return isEnum[type];
 };
+
 export const ButtonStyle = styled.span<{ props: ButtonProps }>`
   // 按钮颜色
   background-color: ${({ props }) =>
