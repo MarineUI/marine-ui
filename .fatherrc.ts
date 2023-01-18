@@ -8,4 +8,5 @@ export default defineConfig({
     '@babel/preset-react',
     '@babel/preset-typescript',
   ],
+  extraBabelPlugins: [['@babel/plugin-transform-runtime', { corejs: 3 }]],
 });
