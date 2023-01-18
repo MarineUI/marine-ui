@@ -72,7 +72,7 @@ const getSize = (size: string, type: string): string | undefined => {
   return isEnum[type];
 };
 
-export const ButtonStyle = styled.span<{ props: ButtonProps }>`
+export const ButtonStyle = styled.button<{ props: ButtonProps }>`
   // 按钮颜色
   background-color: ${({ props }) =>
     props.type ? getColor(props.type) : defaultConfig.get('ButtonColor')};
@@ -104,4 +104,8 @@ export const ButtonStyle = styled.span<{ props: ButtonProps }>`
       ? getSize(props.size, 'buttonHeight')
       : defaultConfig.get('buttonHeight')};
   border-radius: 0.5em;
+  // 取消按钮边框
+  border: none;
+  // 鼠标指针
+  cursor: pointer;
 `;
