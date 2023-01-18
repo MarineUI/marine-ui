@@ -1,6 +1,6 @@
 ---
 hero:
-  title: library
+  title: rcc-test
   description:
   actions:
     - text: Hello
