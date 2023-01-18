@@ -8,7 +8,8 @@ export interface ButtonProps {
 }
 
 export interface sizeProps {
-  paddingL: string;
-  paddingH: string;
+  [index: string]: string;
+  buttonWidth: string;
   fontSize: string;
+  buttonHeight: string;
 }

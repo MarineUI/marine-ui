@@ -1,14 +1,12 @@
 import styled from 'styled-components';
 import { ButtonProps, sizeProps } from './interface';
-
-enum defaultConfig {
-  ButtonColor = '#4e67f2',
-  TextColor = '#fff',
-  fontSize = '1em',
-  paddingL = '1.5em',
-  paddingH = '0.5em',
-}
-
+const defaultConfig = new Map<string, string>([
+  ['ButtonColor', '#4e67f2'],
+  ['TextColor', '#fff'],
+  ['fontSize', '1em'],
+  ['buttonWidth', '1.5em'],
+  ['buttonHeight', '0.5em'],
+]);
 const colorMap = new Map<string, string>([
   ['primary', '#4e67f2'],
   ['secondary', '#9748da'],
@@ -20,37 +18,41 @@ const sizeMap = new Map<string, sizeProps>([
   [
     'xs',
     {
-      paddingL: '1em',
-      paddingH: '0.2em',
+      buttonWidth: '1em',
+      buttonHeight: '0.2em',
       fontSize: '0.7em',
     },
   ],
   [
     'sm',
     {
-      paddingL: '1.1em',
-      paddingH: '0.3em',
+      buttonWidth: '1.1em',
+      buttonHeight: '0.3em',
       fontSize: '0.8em',
     },
   ],
   [
     'm',
     {
-      paddingL: '1.3em',
-      paddingH: '0.4em',
+      buttonWidth: '1.3em',
+      buttonHeight: '0.4em',
       fontSize: '0.9em',
     },
   ],
   [
     'l',
     {
-      paddingL: '1.4em',
-      paddingH: '0.5em',
+      buttonWidth: '1.4em',
+      buttonHeight: '0.5em',
       fontSize: '1em',
     },
   ],
 ]);
-
+/**
+ * 根据预设获取颜色
+ * @param color
+ * @returns
+ */
 const getColor = (color: string): string => {
   const propsColor = colorMap.get(color);
   if (propsColor !== undefined) {
@@ -58,28 +60,48 @@ const getColor = (color: string): string => {
   }
   return color;
 };
-
+/**
+ * 根据预设获取大小
+ * @param size
+ * @param type
+ * @returns
+ */
 const getSize = (size: string, type: string): string | undefined => {
   const isEnum = sizeMap.get(size);
-  if (isEnum === undefined) return;
-  return isEnum[type as keyof sizeProps];
+  if (isEnum === undefined) return defaultConfig.get(type);
+  return isEnum[type];
 };
 
 export const ButtonStyle = styled.span<{ props: ButtonProps }>`
+  // 按钮颜色
   background-color: ${({ props }) =>
-    props.type ? getColor(props.type) : defaultConfig.ButtonColor};
+    props.type ? getColor(props.type) : defaultConfig.get('ButtonColor')};
+  // 字体颜色
   color: ${({ props }) =>
-    props.color ? props.color : defaultConfig.TextColor};
+    props.color ? props.color : defaultConfig.get('TextColor')};
+  // 字体大小
   font-size: ${({ props }) =>
-    props.size ? getSize(props.size, 'fontSize') : defaultConfig.fontSize};
-  margin: 1em 2em;
+    props.size
+      ? getSize(props.size, 'fontSize')
+      : defaultConfig.get('fontSize')};
+  margin: 0 1em;
+  // 按钮宽度
   padding-left: ${({ props }) =>
-    props.size ? getSize(props.size, 'paddingL') : defaultConfig.paddingL};
+    props.size
+      ? getSize(props.size, 'buttonWidth')
+      : defaultConfig.get('buttonWidth')};
   padding-right: ${({ props }) =>
-    props.size ? getSize(props.size, 'paddingL') : defaultConfig.paddingL};
+    props.size
+      ? getSize(props.size, 'buttonWidth')
+      : defaultConfig.get('buttonWidth')};
+  // 按钮高度
   padding-top: ${({ props }) =>
-    props.size ? getSize(props.size, 'paddingH') : defaultConfig.paddingH};
+    props.size
+      ? getSize(props.size, 'buttonHeight')
+      : defaultConfig.get('buttonHeight')};
   padding-bottom: ${({ props }) =>
-    props.size ? getSize(props.size, 'paddingH') : defaultConfig.paddingH};
+    props.size
+      ? getSize(props.size, 'buttonHeight')
+      : defaultConfig.get('buttonHeight')};
   border-radius: 0.5em;
 `;
