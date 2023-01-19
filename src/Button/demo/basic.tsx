@@ -6,7 +6,7 @@ export default function BasicButtonDemo() {
     <>
       <MyButton type="primary">按钮</MyButton>
       <MyButton type="secondary">按钮</MyButton>
-      <MyButton type="warn">按钮</MyButton>
+      <MyButton type="warning">按钮</MyButton>
       <MyButton type="success">按钮</MyButton>
     </>
   );
