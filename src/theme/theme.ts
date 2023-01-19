@@ -1,3 +1,4 @@
+// TODO 把颜色设为变量，放在color.ts中
 export default {
   colors: {
     primary: {

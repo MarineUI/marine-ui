@@ -68,6 +68,18 @@ function getBgColor(props: ButtonProps, theme: 'light' | 'dark'): string {
     case 'text':
     default:
       return 'none';
+    // TODO outline 和 text的背景颜色应该是primary的透明色
+  }
+}
+
+function getBorder(props: ButtonProps, theme: 'light' | 'dark'): string {
+  switch (props.variant) {
+    case 'outlined':
+      return `1px solid ${defaultTheme.colors.outline[theme]}`;
+    case 'filled':
+    case 'text':
+    default:
+      return 'none';
   }
 }
 
@@ -84,15 +96,15 @@ const getSize = (size: string, type: string): string | undefined => {
 };
 
 export const ButtonStyle = styled.button<{ props: ButtonProps }>`
-  // 按钮颜色
   background-color: ${({ props }) => getBgColor(props, 'light')};
-  // 字体颜色
   color: ${({ props }) => getTextColor(props, 'light')};
-  // 字体大小
+  border: ${({ props }) => getBorder(props, 'light')};
   font-size: ${({ props }) =>
     props.size ? getSize(props.size, 'fontSize') : defaultConfig['fontSize']};
+  border-radius: 0.5em;
+  cursor: pointer;
+
   margin: 0 1em;
-  // 按钮宽度
   padding-left: ${({ props }) =>
     props.size
       ? getSize(props.size, 'buttonWidth')
@@ -101,7 +113,6 @@ export const ButtonStyle = styled.button<{ props: ButtonProps }>`
     props.size
       ? getSize(props.size, 'buttonWidth')
       : defaultConfig['buttonWidth']};
-  // 按钮高度
   padding-top: ${({ props }) =>
     props.size
       ? getSize(props.size, 'buttonHeight')
@@ -110,9 +121,4 @@ export const ButtonStyle = styled.button<{ props: ButtonProps }>`
     props.size
       ? getSize(props.size, 'buttonHeight')
       : defaultConfig['buttonHeight']};
-  border-radius: 0.5em;
-  // 取消按钮边框
-  border: none;
-  // 鼠标指针
-  cursor: pointer;
 `;
