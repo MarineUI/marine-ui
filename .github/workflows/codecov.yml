@@ -1,0 +1,30 @@
+# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
+
+name: Code Coverage
+
+on:
+  push:
+    branches: ['master']
+  pull_request:
+    branches: ['master']
+
+jobs:
+  CodeCov:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Start Action
+        uses: actions/checkout@v3
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2.2.4
+
+      - name: Install Dependencies
+        run: pnpm install
+
+      - name: Generate Test Coverage
+        run: pnpm run test
+
+      - name: Upload to Codecov
+        uses: codecov/codecov-action@v3.1.1
