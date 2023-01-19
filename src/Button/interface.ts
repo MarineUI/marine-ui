@@ -1,9 +1,8 @@
 import { ReactElement } from 'react';
 
 export interface ButtonProps {
-  type?: string;
+  color?: 'primary' | 'secondary' | 'tertiary';
   size?: string;
-  color?: string;
   children?: ReactElement | null | string;
 }
 
