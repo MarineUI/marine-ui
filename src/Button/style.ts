@@ -1,9 +1,12 @@
 import styled from 'styled-components';
+import defaultTheme from '../theme/theme';
+import { capitalize } from '../utils/stringHelper';
 import { ButtonProps, sizeProps } from './interface';
 
 interface defaultConfigProps {
   [index: string]: string;
 }
+
 const defaultConfig: defaultConfigProps = {
   ButtonColor: '#4e67f2',
   TextColor: '#fff',
@@ -12,15 +15,6 @@ const defaultConfig: defaultConfigProps = {
   buttonHeight: '0.5em',
 };
 
-interface colorProps {
-  [index: string]: string;
-}
-const colorObj: colorProps = {
-  primary: '#4e67f2',
-  secondary: '#9748da',
-  success: '#50c969',
-  warning: '#e7ab35',
-};
 const sizeObj: sizeProps = {
   xs: {
     buttonWidth: '1em',
@@ -43,19 +37,40 @@ const sizeObj: sizeProps = {
     fontSize: '1em',
   },
 };
+
+function getTextColor(props: ButtonProps, theme: 'light' | 'dark'): string {
+  const onColor = 'on' + capitalize(props.color);
+  type OnColor = 'onPrimary' | 'onSecondary' | 'onTertiary';
+  switch (props.variant) {
+    case 'filled':
+      return props.color
+        ? defaultTheme.colors[onColor as OnColor][theme]
+        : defaultTheme.colors.primary[theme];
+    case 'outlined':
+    case 'text':
+    default:
+      return defaultTheme.colors.primary[theme];
+  }
+}
+
 /**
  * 根据预设获取颜色
  * @param color
  * @returns
  */
-const getColor = (color: string): string => {
-  const propsColor = colorObj[color];
-  console.log(propsColor);
-  if (propsColor !== undefined) {
-    return propsColor;
+function getBgColor(props: ButtonProps, theme: 'light' | 'dark'): string {
+  switch (props.variant) {
+    case 'filled':
+      return props.color
+        ? defaultTheme.colors[props.color][theme]
+        : defaultTheme.colors.primary[theme];
+    case 'outlined':
+    case 'text':
+    default:
+      return 'none';
   }
-  return color;
-};
+}
+
 /**
  * 根据预设获取大小
  * @param size
@@ -70,11 +85,9 @@ const getSize = (size: string, type: string): string | undefined => {
 
 export const ButtonStyle = styled.button<{ props: ButtonProps }>`
   // 按钮颜色
-  background-color: ${({ props }) =>
-    props.type ? getColor(props.type) : defaultConfig['ButtonColor']};
+  background-color: ${({ props }) => getBgColor(props, 'light')};
   // 字体颜色
-  color: ${({ props }) =>
-    props.color ? props.color : defaultConfig['TextColor']};
+  color: ${({ props }) => getTextColor(props, 'light')};
   // 字体大小
   font-size: ${({ props }) =>
     props.size ? getSize(props.size, 'fontSize') : defaultConfig['fontSize']};

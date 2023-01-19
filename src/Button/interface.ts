@@ -2,6 +2,7 @@ import { ReactElement } from 'react';
 
 export interface ButtonProps {
   color?: 'primary' | 'secondary' | 'tertiary';
+  variant?: 'text' | 'filled' | 'outlined';
   size?: string;
   children?: ReactElement | null | string;
 }
