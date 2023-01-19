@@ -8,8 +8,10 @@ export interface ButtonProps {
 }
 
 export interface sizeProps {
-  [index: string]: string;
-  buttonWidth: string;
-  fontSize: string;
-  buttonHeight: string;
+  [index: string]: {
+    [index: string]: string;
+    buttonWidth: string;
+    fontSize: string;
+    buttonHeight: string;
+  };
 }

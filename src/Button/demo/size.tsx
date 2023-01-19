@@ -9,7 +9,7 @@ const App: React.FC = () => (
     <MyButton type="secondary" size="sm">
       按钮
     </MyButton>
-    <MyButton type="warn" size="m">
+    <MyButton type="warning" size="m">
       按钮
     </MyButton>
     <MyButton type="success" size="l">
