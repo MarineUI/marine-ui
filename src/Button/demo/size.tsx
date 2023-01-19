@@ -3,16 +3,16 @@ import React from 'react';
 
 const App: React.FC = () => (
   <>
-    <MyButton type="primary" size="xs">
+    <MyButton color="primary" size="xs">
       按钮
     </MyButton>
-    <MyButton type="secondary" size="sm">
+    <MyButton color="secondary" size="sm">
       按钮
     </MyButton>
-    <MyButton type="warning" size="m">
+    <MyButton color="tertiary" size="m">
       按钮
     </MyButton>
-    <MyButton type="success" size="l">
+    <MyButton color="tertiary" size="l">
       按钮
     </MyButton>
   </>
