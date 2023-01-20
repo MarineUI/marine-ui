@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import defaultTheme from '../theme/theme';
+import { hexToRgba } from '../utils/colorHelper';
 import { capitalize } from '../utils/stringHelper';
 import { ButtonProps, sizeProps } from './interface';
 
@@ -67,8 +68,7 @@ function getBgColor(props: ButtonProps, theme: 'light' | 'dark'): string {
     case 'outlined':
     case 'text':
     default:
-      return 'none';
-    // TODO outline 和 text的背景颜色应该是primary的透明色
+      return hexToRgba(defaultTheme.colors.primary[theme], 0);
   }
 }
 
