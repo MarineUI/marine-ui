@@ -10,10 +10,11 @@ specifiers:
   '@babel/runtime-corejs3': ^7.20.7
   '@commitlint/cli': ^17.1.2
   '@commitlint/config-conventional': ^17.1.0
-  '@material/material-color-utilities': ^0.2.0
+  '@importantimport/material-color-utilities': 0.2.1-alpha.0
   '@testing-library/jest-dom': ^5.16.5
   '@testing-library/react': ^13.4.0
   '@types/jest': ^29.2.5
+  '@types/lodash': ^4.14.191
   '@types/react': ^18.0.26
   '@types/styled-components': ^5.1.26
   '@types/testing-library__jest-dom': ^5.14.5
@@ -26,6 +27,7 @@ specifiers:
   jest: ^29.3.1
   jest-environment-jsdom: ^29.3.1
   lint-staged: ^13.0.3
+  lodash: ^4.17.21
   postcss: '>=8.4.6 <9.0.0'
   prettier: ^2.7.1
   prettier-plugin-organize-imports: ^3.0.0
@@ -42,7 +44,8 @@ specifiers:
 dependencies:
   '@babel/runtime': 7.20.7
   '@babel/runtime-corejs3': 7.20.7
-  '@material/material-color-utilities': 0.2.0
+  '@importantimport/material-color-utilities': 0.2.1-alpha.0
+  lodash: 4.17.21
   styled-components: 5.3.6_vtcxgy2wlmese7djxl6h7ok674
 
 devDependencies:
@@ -56,6 +59,7 @@ devDependencies:
   '@testing-library/jest-dom': 5.16.5
   '@testing-library/react': 13.4.0_biqbaboplfbrettd7655fr4n2y
   '@types/jest': 29.2.5
+  '@types/lodash': 4.14.191
   '@types/react': 18.0.26
   '@types/styled-components': 5.1.26
   '@types/testing-library__jest-dom': 5.14.5
@@ -2145,6 +2149,11 @@ packages:
       - supports-color
     dev: true
 
+  /@importantimport/material-color-utilities/0.2.1-alpha.0:
+    resolution: {integrity: sha512-DXX9lX+SOx6/mnKov9TKdWCijA+5W9oS2HTuB93MiEYGRjj+NOWxl4g4VS8FIpUu+bV16CGntZr4xFlLGoG4bg==}
+    requiresBuild: true
+    dev: false
+
   /@istanbuljs/load-nyc-config/1.1.0:
     resolution: {integrity: sha512-VjeHSlIzpv/NyD3N0YuHfXOPDIixcA1q2ZV98wsMqcYlPmv2n3Yb2lYP9XMElnaFVXg5A7YLTeLu6V84uQDjmQ==}
     engines: {node: '>=8'}
@@ -2464,10 +2473,6 @@ packages:
     dependencies:
       react: 18.2.0
     dev: true
-
-  /@material/material-color-utilities/0.2.0:
-    resolution: {integrity: sha512-Wux17VAe27abfUyA+yPq/xN7+e6xkj1UFKd9g02KD0HhpM+GRqXLfytJ6nJKhFtliZouQfTcBcOg2cGrt/XbKA==}
-    dev: false
 
   /@microsoft/api-extractor-model/7.23.3:
     resolution: {integrity: sha512-HpsWzG6jrWHrTlIg53kmp/IVQPBHUZc+8dunnr9VXrmDjVBehaXxp9A6jhTQ/bd7W1m5TYfAvwCmseC1+9FCuA==}
@@ -3190,6 +3195,10 @@ packages:
     resolution: {integrity: sha512-BQ5aZNSCpj7D6K2ksrRCTmKRLEpnPvWDiLPfoGyhZ++8YtiK9d/3DBKPJgry359X/P1PfruyYwvnvwFjuEiEIg==}
     dependencies:
       '@types/node': 18.11.18
+    dev: true
+
+  /@types/lodash/4.14.191:
+    resolution: {integrity: sha512-BdZ5BCCvho3EIXw6wUCXHe7rS53AIDPLE+JzwgT+OsJk53oBfbSmZZ7CX4VaRoN78N+TJpFi9QPlfIVNmJYWxQ==}
     dev: true
 
   /@types/mdast/3.0.10:

@@ -2,7 +2,7 @@ import {
   argbFromHex,
   hexFromArgb,
   TonalPalette,
-} from '@material/material-color-utilities';
+} from '@importantimport/material-color-utilities';
 import themeColor from './theme';
 
 const tones = [10, 20, 30, 40, 50, 60, 70, 80, 90, 95, 99];
