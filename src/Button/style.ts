@@ -83,6 +83,10 @@ function getBorder(props: ButtonProps, theme: 'light' | 'dark'): string {
   }
 }
 
+function getCursor(props: ButtonProps): string {
+  return props.disabled ? 'not-allowed' : 'pointer';
+}
+
 /**
  * 根据预设获取大小
  * @param size
@@ -99,10 +103,10 @@ export const ButtonStyle = styled.button<{ props: ButtonProps }>`
   background-color: ${({ props }) => getBgColor(props, 'light')};
   color: ${({ props }) => getTextColor(props, 'light')};
   border: ${({ props }) => getBorder(props, 'light')};
+  cursor: ${({ props }) => getCursor(props)};
   font-size: ${({ props }) =>
     props.size ? getSize(props.size, 'fontSize') : defaultConfig['fontSize']};
   border-radius: 0.5em;
-  cursor: pointer;
 
   margin: 0 1em;
   padding-left: ${({ props }) =>
