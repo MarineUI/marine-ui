@@ -67,6 +67,9 @@ function getBgColor(props: ButtonProps, theme: 'light' | 'dark'): string {
         : defaultTheme.colors.primary[theme];
     case 'outlined':
     case 'text':
+      return props.color
+        ? hexToRgba(defaultTheme.colors[props.color][theme], 0)
+        : hexToRgba(defaultTheme.colors.primary[theme], 0);
     default:
       return hexToRgba(defaultTheme.colors.primary[theme], 0);
   }
@@ -85,6 +88,36 @@ function getBorder(props: ButtonProps, theme: 'light' | 'dark'): string {
 
 function getCursor(props: ButtonProps): string {
   return props.disabled ? 'not-allowed' : 'pointer';
+}
+
+function getHoveredBgColor(
+  props: ButtonProps,
+  theme: 'light' | 'dark'
+): string {
+  switch (props.variant) {
+    case 'outlined':
+    case 'text':
+      return props.color
+        ? hexToRgba(
+            defaultTheme.colors[props.color][theme],
+            defaultTheme.opacity.hover
+          )
+        : hexToRgba(
+            defaultTheme.colors.primary[theme],
+            defaultTheme.opacity.hover
+          );
+    case 'filled':
+    default:
+      return props.color
+        ? hexToRgba(
+            defaultTheme.colors[props.color][theme],
+            1 - defaultTheme.opacity.hover
+          )
+        : hexToRgba(
+            defaultTheme.colors.primary[theme],
+            1 - defaultTheme.opacity.hover
+          );
+  }
 }
 
 /**
@@ -107,6 +140,10 @@ export const ButtonStyle = styled.button<{ props: ButtonProps }>`
   font-size: ${({ props }) =>
     props.size ? getSize(props.size, 'fontSize') : defaultConfig['fontSize']};
   border-radius: 0.5em;
+
+  &:hover {
+    background-color: ${({ props }) => getHoveredBgColor(props, 'light')};
+  }
 
   margin: 0 1em;
   padding-left: ${({ props }) =>
