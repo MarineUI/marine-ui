@@ -1,125 +1,129 @@
-// TODO 把颜色设为变量，放在color.ts中
+import pallet from './pallet';
+
+// Color Tokens
+// https://m3.material.io/styles/color/the-color-system/tokens
+
 export default {
   colors: {
     primary: {
-      light: '#6750A4',
-      dark: '#D0BCFF',
+      light: pallet.primary[40],
+      dark: pallet.primary[80],
     },
     primaryContainer: {
-      light: '#EADDFF',
-      dark: '#4F378B',
+      light: pallet.primary[90],
+      dark: pallet.primary[30],
     },
     onPrimary: {
-      light: '#FFFFFF',
-      dark: '#371E73',
+      light: pallet.white,
+      dark: pallet.primary[20],
     },
     onPrimaryContainer: {
-      light: '#21005E',
-      dark: '#EADDFF',
+      light: pallet.primary[10],
+      dark: pallet.primary[90],
     },
     secondary: {
-      light: '#625B71',
-      dark: '#CCC2DC',
+      light: pallet.secondary[40],
+      dark: pallet.secondary[80],
     },
     secondaryContainer: {
-      light: '#E8DEF8',
-      dark: '#4A4458',
+      light: pallet.secondary[90],
+      dark: pallet.secondary[30],
     },
     onSecondary: {
-      light: '#FFFFFF',
-      dark: '#332D41',
+      light: pallet.white,
+      dark: pallet.secondary[20],
     },
     onSecondaryContainer: {
-      light: '#1E192B',
-      dark: '#E8DEF8',
+      light: pallet.secondary[10],
+      dark: pallet.secondary[90],
     },
     tertiary: {
-      light: '#7D5260',
-      dark: '#EFB8C8',
+      light: pallet.tertiary[40],
+      dark: pallet.tertiary[80],
     },
     tertiaryContainer: {
-      light: '#FFD8E4',
-      dark: '#633B48',
+      light: pallet.tertiary[90],
+      dark: pallet.tertiary[30],
     },
     onTertiary: {
-      light: '#FFFFFF',
-      dark: '#492532',
+      light: pallet.white,
+      dark: pallet.tertiary[20],
     },
     onTertiaryContainer: {
-      light: '#370B1E',
-      dark: '#FFD8E4',
+      light: pallet.tertiary[10],
+      dark: pallet.tertiary[90],
     },
     surface: {
-      light: '#FFFBFE',
-      dark: '#1C1B1F',
+      light: pallet.neutral[99],
+      dark: pallet.neutral[10],
     },
     surfaceVariant: {
-      light: '#E7E0EC',
-      dark: '#49454F',
+      light: pallet.neutralVariant[90],
+      dark: pallet.neutralVariant[30],
     },
     onSurface: {
-      light: '#1C1B1F',
-      dark: '#E6E1E5',
+      light: pallet.neutral[10],
+      dark: pallet.neutral[90],
     },
     onSurfaceVariant: {
-      light: '#49454E',
-      dark: '#CAC4D0',
+      light: pallet.neutralVariant[30],
+      dark: pallet.neutralVariant[80],
     },
     background: {
-      light: '#FFFBFE',
-      dark: '#1C1B1F',
+      light: pallet.neutral[99],
+      dark: pallet.neutral[10],
     },
     onBackground: {
-      light: '#1C1B1F',
-      dark: '#E6E1E5',
+      light: pallet.neutral[10],
+      dark: pallet.neutral[90],
     },
     error: {
-      light: '#B3261E',
-      dark: '#F2B8B5',
+      light: pallet.error[40],
+      dark: pallet.error[80],
     },
     errorContainer: {
-      light: '#F9DEDC',
-      dark: '#8C1D18',
+      light: pallet.error[90],
+      dark: pallet.error[30],
     },
     onError: {
-      light: '#FFFFFF',
-      dark: '#601410',
+      light: pallet.white,
+      dark: pallet.error[20],
     },
     onErrorContainer: {
-      light: '#410E0B',
-      dark: '#F9DEDC',
+      light: pallet.error[10],
+      dark: pallet.error[90],
     },
     outline: {
-      light: '#79747E',
-      dark: '#938F99',
+      light: pallet.neutralVariant[50],
+      dark: pallet.neutralVariant[60],
     },
     outlineVariant: {
-      light: '#C4C7C5',
-      dark: '#444746',
+      light: pallet.neutralVariant[80],
+      dark: pallet.neutralVariant[30],
     },
     shadow: {
-      light: '#000000	',
-      dark: '#000000	',
+      light: pallet.black,
+      dark: pallet.black,
     },
     surfaceTint: {
-      light: '#6750A4',
-      dark: '#D0BCFF',
+      light: pallet.primary[40],
+      dark: pallet.primary[80],
     },
     inverseSurface: {
-      light: '#313033',
-      dark: '#E6E1E5',
+      light: pallet.neutral[20],
+      dark: pallet.neutral[90],
     },
     inverseOnSurface: {
-      light: '#F4EFF4',
-      dark: '#313033',
+      light: pallet.neutral[95],
+      dark: pallet.neutral[20],
     },
     inversePrimary: {
-      light: ' #D0BCFF',
-      dark: ' #6750A4',
+      light: pallet.primary[80],
+      dark: pallet.primary[40],
     },
     scrim: {
-      light: '#000000',
-      dark: '#000000',
+      light: pallet.black,
+      dark: pallet.black,
     },
   },
   opacity: {

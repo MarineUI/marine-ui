@@ -15,19 +15,33 @@ const keyColors = [
   'neutralVariant40',
 ];
 
+interface Pallet {
+  primary: any;
+  secondary: any;
+  tertiary: any;
+  error: any;
+  neutral: any;
+  neutralVariant: any;
+  white: any;
+  black: any;
+}
+
 // 通过几个颜色生成整个色谱
-function generatePallet(themeColors: any) {
+function generatePallet(themeColors: any): Pallet {
   const pallet: any = {};
   keyColors.forEach((key) => {
-    pallet[key] = {};
+    const keyName = key.slice(0, -2); // 字符串去掉40
+    pallet[keyName] = {};
     tones.forEach((tone) => {
-      pallet[key][tone] = hexFromArgb(
+      pallet[keyName][tone] = hexFromArgb(
         TonalPalette.fromInt(argbFromHex(themeColors[key])).tone(tone)
       );
     });
   });
+  pallet.white = themeColors.common.white;
+  pallet.black = themeColors.common.black;
   return pallet;
 }
 
-const pallet = generatePallet(themeColor);
+const pallet = generatePallet(themeColor.color);
 export default pallet;

@@ -5,7 +5,7 @@ import { capitalize } from '../utils/stringHelper';
 import { ButtonProps, Theme } from './interface';
 
 function getTextColor(props: ButtonProps, theme: Theme): string {
-  const onColor = 'on' + capitalize(props.color);
+  const onColor = 'on' + capitalize(props.color); // 加前缀on，匹配token
   type OnColor = 'onPrimary' | 'onSecondary' | 'onTertiary';
   switch (props.variant) {
     case 'filled':
