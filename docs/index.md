@@ -1,6 +1,6 @@
 ---
 hero:
-  title: rcc-test
+  title: marine-ui
   description:
   actions:
     - text: Hello

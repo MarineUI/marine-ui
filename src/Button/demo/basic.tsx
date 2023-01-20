@@ -1,4 +1,4 @@
-import { MyButton } from 'rcc-test';
+import { MyButton } from 'marine-ui';
 import React from 'react';
 
 export default function BasicButtonDemo() {
