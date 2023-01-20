@@ -27,6 +27,15 @@ export default function BasicButtonDemo() {
           Text
         </MyButton>
       </div>
+      <br />
+      <div>
+        <MyButton color="primary" variant="filled" disabled>
+          按钮
+        </MyButton>
+        <MyButton color="secondary" variant="filled" disabled>
+          按钮
+        </MyButton>
+      </div>
     </>
   );
 }
