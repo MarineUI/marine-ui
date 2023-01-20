@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import defaultTheme from '../theme/theme';
+import tokens from '../theme/tokens';
 import { hexToRgba } from '../utils/colorHelper';
 import { capitalize } from '../utils/stringHelper';
 import { ButtonProps, Theme } from './interface';
@@ -11,17 +11,17 @@ function getTextColor(props: ButtonProps, theme: Theme): string {
     case 'filled':
       if (props.disabled) {
         return hexToRgba(
-          defaultTheme.colors.onSurface[theme],
-          defaultTheme.opacity.disabledContent
+          tokens.colors.onSurface[theme],
+          tokens.opacity.disabledContent
         );
       }
       return props.color
-        ? defaultTheme.colors[onColor as OnColor][theme]
-        : defaultTheme.colors.primary[theme];
+        ? tokens.colors[onColor as OnColor][theme]
+        : tokens.colors.primary[theme];
     case 'outlined':
     case 'text':
     default:
-      return defaultTheme.colors.primary[theme];
+      return tokens.colors.primary[theme];
   }
 }
 
@@ -29,15 +29,15 @@ function getBgColor(props: ButtonProps, theme: Theme): string {
   switch (props.variant) {
     case 'filled':
       return props.color
-        ? defaultTheme.colors[props.color][theme]
-        : defaultTheme.colors.primary[theme];
+        ? tokens.colors[props.color][theme]
+        : tokens.colors.primary[theme];
     case 'outlined':
     case 'text':
       return props.color
-        ? hexToRgba(defaultTheme.colors[props.color][theme], 0)
-        : hexToRgba(defaultTheme.colors.primary[theme], 0);
+        ? hexToRgba(tokens.colors[props.color][theme], 0)
+        : hexToRgba(tokens.colors.primary[theme], 0);
     default:
-      return hexToRgba(defaultTheme.colors.primary[theme], 0);
+      return hexToRgba(tokens.colors.primary[theme], 0);
   }
 }
 
@@ -46,11 +46,11 @@ function getBorder(props: ButtonProps, theme: Theme): string {
     case 'outlined':
       if (props.disabled) {
         return `1px solid ${hexToRgba(
-          defaultTheme.colors.onSurface[theme],
-          defaultTheme.opacity.disabledContainer
+          tokens.colors.onSurface[theme],
+          tokens.opacity.disabledContainer
         )}`;
       }
-      return `1px solid ${defaultTheme.colors.outline[theme]}`;
+      return `1px solid ${tokens.colors.outline[theme]}`;
     case 'filled':
     case 'text':
     default:
@@ -67,25 +67,13 @@ function getHoveredBgColor(props: ButtonProps, theme: Theme): string {
     case 'outlined':
     case 'text':
       return props.color
-        ? hexToRgba(
-            defaultTheme.colors[props.color][theme],
-            defaultTheme.opacity.hover
-          )
-        : hexToRgba(
-            defaultTheme.colors.primary[theme],
-            defaultTheme.opacity.hover
-          );
+        ? hexToRgba(tokens.colors[props.color][theme], tokens.opacity.hover)
+        : hexToRgba(tokens.colors.primary[theme], tokens.opacity.hover);
     case 'filled':
     default:
       return props.color
-        ? hexToRgba(
-            defaultTheme.colors[props.color][theme],
-            1 - defaultTheme.opacity.hover
-          )
-        : hexToRgba(
-            defaultTheme.colors.primary[theme],
-            1 - defaultTheme.opacity.hover
-          );
+        ? hexToRgba(tokens.colors[props.color][theme], 1 - tokens.opacity.hover)
+        : hexToRgba(tokens.colors.primary[theme], 1 - tokens.opacity.hover);
   }
 }
 
@@ -93,21 +81,21 @@ function getDisabledBgColor(props: ButtonProps, theme: Theme): string {
   switch (props.variant) {
     case 'filled':
       return hexToRgba(
-        defaultTheme.colors.onSurface[theme],
-        defaultTheme.opacity.disabledContainer
+        tokens.colors.onSurface[theme],
+        tokens.opacity.disabledContainer
       );
     case 'outlined':
     case 'text':
     default:
       // outlined和text在disabled状态下都是透明，所以颜色无所谓
-      return hexToRgba(defaultTheme.colors.primary[theme], 0);
+      return hexToRgba(tokens.colors.primary[theme], 0);
   }
 }
 
 function getDisabledTextColor(theme: Theme) {
   return hexToRgba(
-    defaultTheme.colors.onSurface[theme],
-    defaultTheme.opacity.disabledContent
+    tokens.colors.onSurface[theme],
+    tokens.opacity.disabledContent
   );
 }
 
