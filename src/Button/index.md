@@ -7,8 +7,3 @@ The button is used to start an instant operation.
 The most basic button has five states.
 
 <code src="./demo/basic.tsx"></code>
-
-## Control Size
-
-<code src="./demo/size.tsx"></code>
-Button
