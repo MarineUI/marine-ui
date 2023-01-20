@@ -1,7 +1,7 @@
+import capitalize from 'lodash/capitalize';
 import styled from 'styled-components';
 import tokens from '../theme/tokens';
 import { hexToRgba } from '../utils/colorHelper';
-import { capitalize } from '../utils/stringHelper';
 import { ButtonProps, Theme } from './interface';
 
 function getTextColor(props: ButtonProps, theme: Theme): string {
