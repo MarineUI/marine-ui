@@ -32,7 +32,7 @@ export default function BasicButtonDemo() {
         <MyButton color="primary" variant="filled" disabled>
           按钮
         </MyButton>
-        <MyButton color="secondary" variant="filled" disabled>
+        <MyButton color="secondary" variant="outlined" disabled>
           按钮
         </MyButton>
       </div>

@@ -44,6 +44,12 @@ function getTextColor(props: ButtonProps, theme: 'light' | 'dark'): string {
   type OnColor = 'onPrimary' | 'onSecondary' | 'onTertiary';
   switch (props.variant) {
     case 'filled':
+      if (props.disabled) {
+        return hexToRgba(
+          defaultTheme.colors.onSurface[theme],
+          defaultTheme.opacity.disabledContent
+        );
+      }
       return props.color
         ? defaultTheme.colors[onColor as OnColor][theme]
         : defaultTheme.colors.primary[theme];
@@ -62,6 +68,12 @@ function getTextColor(props: ButtonProps, theme: 'light' | 'dark'): string {
 function getBgColor(props: ButtonProps, theme: 'light' | 'dark'): string {
   switch (props.variant) {
     case 'filled':
+      if (props.disabled) {
+        return hexToRgba(
+          defaultTheme.colors.onSurface[theme],
+          defaultTheme.opacity.disabledContainer
+        );
+      }
       return props.color
         ? defaultTheme.colors[props.color][theme]
         : defaultTheme.colors.primary[theme];
@@ -78,6 +90,12 @@ function getBgColor(props: ButtonProps, theme: 'light' | 'dark'): string {
 function getBorder(props: ButtonProps, theme: 'light' | 'dark'): string {
   switch (props.variant) {
     case 'outlined':
+      if (props.disabled) {
+        return `1px solid ${hexToRgba(
+          defaultTheme.colors.onSurface[theme],
+          defaultTheme.opacity.disabledContainer
+        )}`;
+      }
       return `1px solid ${defaultTheme.colors.outline[theme]}`;
     case 'filled':
     case 'text':
@@ -119,6 +137,26 @@ function getHoveredBgColor(
           );
   }
 }
+
+// function getDisabledBgColor(
+//   props: ButtonProps,
+//   theme: 'light' | 'dark'
+// ): string {
+//   switch (props.variant) {
+//     case 'filled':
+//       return hexToRgba(
+//         defaultTheme.colors.onSurface[theme],
+//         1 - defaultTheme.opacity.disabledContainer
+//       );
+//     case 'outlined':
+//     case 'text':
+//       return props.color
+//         ? hexToRgba(defaultTheme.colors[props.color][theme], 0)
+//         : hexToRgba(defaultTheme.colors.primary[theme], 0);
+//     default:
+//       return hexToRgba(defaultTheme.colors.primary[theme], 0);
+//   }
+// }
 
 /**
  * 根据预设获取大小

@@ -127,5 +127,7 @@ export default {
     focus: 0.12,
     pressed: 0.12,
     dragged: 0.16,
+    disabledContainer: 0.12,
+    disabledContent: 0.38,
   },
 };
