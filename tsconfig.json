@@ -8,8 +8,8 @@
     "baseUrl": "./",
     "paths": {
       "@@/*": [".dumi/tmp/*"],
-      "rcc-test": ["src"],
-      "rcc-test/*": ["src/*", "*"]
+      "marine-ui": ["src"],
+      "marine-ui/*": ["src/*", "*"]
     }
   },
   "include": [".dumi/**/*", ".dumirc.ts", "src/**/*"]

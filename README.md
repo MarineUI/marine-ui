@@ -1,9 +1,9 @@
-# react-component-test
+# Marine UI
 
-[![NPM version](https://img.shields.io/npm/v/react-component-test.svg?style=flat)](https://npmjs.org/package/react-component-test)
-[![NPM downloads](http://img.shields.io/npm/dm/react-component-test.svg?style=flat)](https://npmjs.org/package/react-component-test)
-[![codecov](https://codecov.io/gh/ApplePotato/dumi-setup/branch/master/graph/badge.svg?token=A7W62H6NTQ)](https://codecov.io/gh/ApplePotato/dumi-setup)
-![CI](https://github.com/ApplePotato/dumi-setup/actions/workflows/ci.yml/badge.svg)
+[![NPM version](https://img.shields.io/npm/v/marine-ui.svg?style=flat)](https://npmjs.org/package/marine-ui)
+[![NPM downloads](http://img.shields.io/npm/dm/marine-ui.svg?style=flat)](https://npmjs.org/package/marine-ui)
+[![codecov](https://codecov.io/gh/MarineUI/marine-ui/branch/master/graph/badge.svg?token=A7W62H6NTQ)](https://codecov.io/gh/MarineUI/marine-ui)
+![CI](https://github.com/MarineUI/marine-ui/actions/workflows/ci.yml/badge.svg)
 
 ## Usage
 
