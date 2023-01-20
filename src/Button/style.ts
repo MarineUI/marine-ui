@@ -68,12 +68,6 @@ function getTextColor(props: ButtonProps, theme: 'light' | 'dark'): string {
 function getBgColor(props: ButtonProps, theme: 'light' | 'dark'): string {
   switch (props.variant) {
     case 'filled':
-      if (props.disabled) {
-        return hexToRgba(
-          defaultTheme.colors.onSurface[theme],
-          defaultTheme.opacity.disabledContainer
-        );
-      }
       return props.color
         ? defaultTheme.colors[props.color][theme]
         : defaultTheme.colors.primary[theme];
@@ -138,25 +132,23 @@ function getHoveredBgColor(
   }
 }
 
-// function getDisabledBgColor(
-//   props: ButtonProps,
-//   theme: 'light' | 'dark'
-// ): string {
-//   switch (props.variant) {
-//     case 'filled':
-//       return hexToRgba(
-//         defaultTheme.colors.onSurface[theme],
-//         1 - defaultTheme.opacity.disabledContainer
-//       );
-//     case 'outlined':
-//     case 'text':
-//       return props.color
-//         ? hexToRgba(defaultTheme.colors[props.color][theme], 0)
-//         : hexToRgba(defaultTheme.colors.primary[theme], 0);
-//     default:
-//       return hexToRgba(defaultTheme.colors.primary[theme], 0);
-//   }
-// }
+function getDisabledBgColor(
+  props: ButtonProps,
+  theme: 'light' | 'dark'
+): string {
+  switch (props.variant) {
+    case 'filled':
+      return hexToRgba(
+        defaultTheme.colors.onSurface[theme],
+        defaultTheme.opacity.disabledContainer
+      );
+    case 'outlined':
+    case 'text':
+    default:
+      // outlined和text在disabled状态下都是透明，所以颜色无所谓
+      return hexToRgba(defaultTheme.colors.primary[theme], 0);
+  }
+}
 
 /**
  * 根据预设获取大小
@@ -181,6 +173,10 @@ export const ButtonStyle = styled.button<{ props: ButtonProps }>`
 
   &:hover {
     background-color: ${({ props }) => getHoveredBgColor(props, 'light')};
+  }
+
+  &:disabled {
+    background-color: ${({ props }) => getDisabledBgColor(props, 'light')};
   }
 
   margin: 0 1em;
