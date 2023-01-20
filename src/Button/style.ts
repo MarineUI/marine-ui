@@ -139,7 +139,7 @@ export const ButtonStyle = styled.button<{ props: ButtonProps }>`
   cursor: ${({ props }) => getCursor(props)};
   font-size: ${({ props }) =>
     props.size ? getSize(props.size, 'fontSize') : defaultConfig['fontSize']};
-  border-radius: 0.5em;
+  border-radius: 100px;
 
   &:hover {
     background-color: ${({ props }) => getHoveredBgColor(props, 'light')};
