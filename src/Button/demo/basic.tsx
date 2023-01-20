@@ -35,6 +35,9 @@ export default function BasicButtonDemo() {
         <MyButton color="secondary" variant="outlined" disabled>
           按钮
         </MyButton>
+        <MyButton color="tertiary" variant="text" disabled>
+          按钮
+        </MyButton>
       </div>
     </>
   );

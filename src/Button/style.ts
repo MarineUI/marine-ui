@@ -150,6 +150,13 @@ function getDisabledBgColor(
   }
 }
 
+function getDisabledTextColor(theme: 'light' | 'dark') {
+  return hexToRgba(
+    defaultTheme.colors.onSurface[theme],
+    defaultTheme.opacity.disabledContent
+  );
+}
+
 /**
  * 根据预设获取大小
  * @param size
@@ -176,6 +183,7 @@ export const ButtonStyle = styled.button<{ props: ButtonProps }>`
   }
 
   &:disabled {
+    color: ${getDisabledTextColor('light')};
     background-color: ${({ props }) => getDisabledBgColor(props, 'light')};
   }
 
