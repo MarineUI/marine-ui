@@ -1,3 +1,5 @@
+import React from 'react';
+
 export type Display = 'display-large' | 'display-medium' | 'display-small';
 export type Headline = 'headline-large' | 'headline-medium' | 'headline-small';
 export type Title = 'title-large' | 'title-medium' | 'title-small';
@@ -12,4 +14,5 @@ export interface TypographyProps {
   variant?: Variant;
   tag?: Tag;
   children?: string | null;
+  style?: React.CSSProperties;
 }

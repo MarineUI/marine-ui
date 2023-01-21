@@ -1,3 +1,3 @@
 # Typography
 
-<code src="./demo/display.tsx"></code>
+<code src="./demo/typography.tsx"></code>
