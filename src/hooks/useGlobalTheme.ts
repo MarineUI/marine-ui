@@ -5,7 +5,6 @@ type Theme = 'light' | 'dark';
 export default function useGlobalTheme(defaultTheme: Theme = 'light'): {
   mode: Theme;
 } {
-  let theme: any = useTheme();
-  theme = theme.mode ? theme.mode : { mode: defaultTheme };
+  let theme: any = useTheme() || { mode: defaultTheme };
   return theme;
 }
