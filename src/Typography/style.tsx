@@ -92,4 +92,5 @@ export const StyledTypography = styled.div<{ props: TypographyProps }>`
   font-weight: ${({ props }) => getFontWeight(props)};
   font-size: ${({ props }) => getFontSize(props)}rem;
   line-height: ${({ props }) => getLineHeight(props)}rem;
+  color: ${({ props }) => (props.color ? props.color : 'inherit')};
 `;

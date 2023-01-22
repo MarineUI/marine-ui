@@ -101,10 +101,12 @@ function getDisabledTextColor(theme: Theme) {
 
 export const ButtonStyle = styled.button<{ props: ButtonProps }>`
   background-color: ${({ props }) => getBgColor(props, 'light')};
-  color: ${({ props }) => getTextColor(props, 'light')};
   border: ${({ props }) => getBorder(props, 'light')};
   cursor: ${({ props }) => getCursor(props)};
   border-radius: 100px;
+  color: ${({ props }) => getTextColor(props, 'light')};
+  height: 40px;
+  padding: 0 24px;
 
   &:hover {
     background-color: ${({ props }) => getHoveredBgColor(props, 'light')};
