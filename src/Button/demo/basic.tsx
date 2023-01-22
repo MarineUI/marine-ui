@@ -1,10 +1,15 @@
 import { MyButton } from 'marine-ui';
 import React from 'react';
 
+const flexStyle = {
+  display: 'flex',
+  gap: '20px',
+};
+
 export default function BasicButtonDemo() {
   return (
     <>
-      <div>
+      <div style={flexStyle}>
         <MyButton color="primary" variant="filled">
           按钮
         </MyButton>
@@ -16,7 +21,7 @@ export default function BasicButtonDemo() {
         </MyButton>
       </div>
       <br />
-      <div>
+      <div style={flexStyle}>
         <MyButton color="primary" variant="filled">
           Filled
         </MyButton>
@@ -28,7 +33,7 @@ export default function BasicButtonDemo() {
         </MyButton>
       </div>
       <br />
-      <div>
+      <div style={flexStyle}>
         <MyButton color="primary" variant="filled" disabled>
           按钮
         </MyButton>

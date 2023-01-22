@@ -1,10 +1,9 @@
-import { ReactElement } from 'react';
+import React from 'react';
 
-export interface ButtonProps {
+export interface ButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   color?: 'primary' | 'secondary' | 'tertiary';
   variant?: 'text' | 'filled' | 'outlined';
-  disabled?: boolean;
-  children?: ReactElement | null | string;
 }
 
 export type Theme = 'light' | 'dark';

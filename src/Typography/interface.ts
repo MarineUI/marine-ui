@@ -15,4 +15,5 @@ export interface TypographyProps {
   tag?: Tag;
   children?: string | null;
   style?: React.CSSProperties;
+  color?: string;
 }
