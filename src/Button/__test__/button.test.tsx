@@ -15,7 +15,11 @@ describe('Button', () => {
   test('Render Enabled Button', () => {
     const variant = ['filled', 'outlined', 'text'];
     variant.forEach((v) => {
-      render(<MyButton variant={v as any}>Hello World</MyButton>);
+      render(
+        <MyButton variant={v as any} color="primary">
+          Hello World
+        </MyButton>
+      );
       expect(screen.getByRole('button')).toBeInTheDocument();
       expect(screen.getByRole('button')).toHaveTextContent('Hello World');
       expect(screen.getByRole('button')).toBeEnabled();

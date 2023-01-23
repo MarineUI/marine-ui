@@ -20,7 +20,11 @@ describe('Typography', () => {
       'label-small',
     ];
     variant.forEach((v) => {
-      render(<Typography variant={v as any}>Hello World</Typography>);
+      render(
+        <Typography variant={v as any} color="orange">
+          Hello World
+        </Typography>
+      );
       expect(screen.getByText('Hello World')).toBeInTheDocument();
       cleanup();
     });
