@@ -5,7 +5,7 @@ import { TypographyProps } from './interface';
 import { StyledTypography } from './style';
 
 const Typography: React.FC<TypographyProps> = (props) => {
-  const { tag, children } = props;
+  const { tag, children, style } = props;
   const theme = useGlobalTheme();
   return (
     <>
@@ -14,6 +14,7 @@ const Typography: React.FC<TypographyProps> = (props) => {
         props={props}
         as={tag ? (tag as any) : 'div'}
         theme={theme}
+        style={style}
       >
         {children}
       </StyledTypography>
