@@ -1,6 +1,6 @@
 import { MyButton } from 'marine-ui';
 import React from 'react';
-import { ThemeProvider } from 'styled-components';
+import ThemeContext from '../../ThemeContext';
 
 const flexStyle = {
   display: 'flex',
@@ -9,7 +9,7 @@ const flexStyle = {
 
 export default function BasicButtonDemo() {
   return (
-    <ThemeProvider theme={{ mode: 'light' }}>
+    <ThemeContext theme={{ mode: 'dark' }}>
       <div style={flexStyle}>
         <MyButton color="primary" variant="filled">
           按钮
@@ -45,6 +45,6 @@ export default function BasicButtonDemo() {
           按钮
         </MyButton>
       </div>
-    </ThemeProvider>
+    </ThemeContext>
   );
 }

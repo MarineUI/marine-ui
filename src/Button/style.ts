@@ -107,6 +107,7 @@ export const ButtonStyle = styled.button<{ props: ButtonProps }>`
   color: ${({ props, theme }) => getTextColor(props, theme.mode)};
   height: 40px;
   padding: 0 24px;
+  transition: background-color, 250ms;
 
   &:hover {
     background-color: ${({ props, theme }) =>
