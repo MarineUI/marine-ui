@@ -26,6 +26,7 @@ function getDirection(direction: directionType) {
       return 'row';
   }
 }
+
 export const SpaceStyle = styled.div<{ props: SpaceProps }>`
   .container {
     display: flex;

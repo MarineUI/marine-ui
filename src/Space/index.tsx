@@ -1,7 +1,9 @@
-import tokens from 'marine-ui/theme/tokens';
 import React, { Children, Fragment, ReactNode } from 'react';
-import { sizeType, SpaceProps } from './interface';
+import GlobalStyle from '../GlobalStyle';
+import tokens from '../theme/tokens';
+import { directionType, sizeObjType, sizeType, SpaceProps } from './interface';
 import { SpaceStyle } from './style';
+
 const getMargin = (size: sizeType) => {
   if (typeof size === 'number' || size === undefined) {
     return size;
@@ -9,49 +11,74 @@ const getMargin = (size: sizeType) => {
   return tokens.space[size];
 };
 
+function getMarginWithSize(
+  direction: directionType,
+  size: sizeType,
+  isLast: boolean
+) {
+  if (!isLast) {
+    switch (direction) {
+      case 'horizontal':
+        return { marginRight: `${getMargin(size)}px` };
+      case 'vertical':
+        return { marginBottom: `${getMargin(size)}px` };
+      default:
+        return { marginRight: `${getMargin(size)}px` };
+    }
+  }
+  return {};
+}
+
+function getMarginWithSizeObj(
+  sizeObj: sizeObjType,
+  direction: directionType,
+  isLast: boolean,
+  wrap: boolean
+) {
+  const { marginRight, marginBottom } = sizeObj;
+
+  if (wrap) {
+    return {
+      marginRight,
+      marginBottom,
+    };
+  }
+
+  if (!isLast) {
+    switch (direction) {
+      case 'horizontal':
+        return { marginRight: `${marginRight}px` };
+      case 'vertical':
+        return { marginBottom: `${marginBottom}px` };
+      default:
+        return { marginRight: `${marginRight}px` };
+    }
+  }
+
+  return {};
+}
+
 const Space = (props: SpaceProps) => {
-  const { children, direction = 'row', size = 'small', wrap } = props;
+  const {
+    children,
+    direction = 'horizontal',
+    size = 'small',
+    wrap = true,
+  } = props;
   const childrenList = Children.toArray(children);
+
   const getMarginStyle = (index: number) => {
     const isLastOne = childrenList.length - 1 === index;
-    if (!Array.isArray(size)) {
-      if (!isLastOne) {
-        switch (direction) {
-          case 'horizontal':
-            return { marginRight: `${getMargin(size)}px` };
-          case 'vertical':
-            return { marginBottom: `${getMargin(size)}px` };
-          default:
-            return { marginRight: `${getMargin(size)}px` };
-        }
-      } else {
-        return {};
-      }
-    }
-    const marginRight = getMargin(size[0]);
-    const marginBottom = getMargin(size[1]);
-    if (wrap) {
-      return {
-        marginRight,
-        marginBottom,
-      };
-    }
-    if (!isLastOne) {
-      switch (direction) {
-        case 'horizontal':
-          return { marginRight: `${marginRight}px` };
-        case 'vertical':
-          return { marginBottom: `${marginBottom}px` };
-        default:
-          return { marginRight: `${getMargin(size)}px` };
-      }
+    if (typeof size !== 'object') {
+      return getMarginWithSize(direction, size, isLastOne);
     } else {
-      return {};
+      return getMarginWithSizeObj(size, direction, isLastOne, wrap);
     }
   };
 
   return (
     <>
+      <GlobalStyle />
       <SpaceStyle props={props}>
         <div className="container">
           {childrenList.map((child: ReactNode, index: number) => {
