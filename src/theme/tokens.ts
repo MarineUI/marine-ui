@@ -134,4 +134,10 @@ export default {
     disabledContainer: 0.12,
     disabledContent: 0.38,
   },
+  space: {
+    mini: 4,
+    small: 8,
+    medium: 16,
+    large: 32,
+  },
 };
