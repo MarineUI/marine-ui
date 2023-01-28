@@ -99,14 +99,25 @@ function getDisabledTextColor(theme: Theme) {
   );
 }
 
+function getPadding(props: ButtonProps) {
+  switch (props.size) {
+    case 'small':
+      return '7px 17px';
+    case 'large':
+      return '13px 31px';
+    case 'medium':
+    default:
+      return '10px 24px';
+  }
+}
+
 export const ButtonStyle = styled.button<{ props: ButtonProps }>`
   background-color: ${({ props, theme }) => getBgColor(props, theme.mode)};
   border: ${({ props, theme }) => getBorder(props, theme.mode)};
   cursor: ${({ props }) => getCursor(props)};
   border-radius: 100px;
   color: ${({ props, theme }) => getTextColor(props, theme.mode)};
-  height: 40px;
-  padding: 0 24px;
+  padding: ${({ props }) => getPadding(props)};
   transition: background-color, 250ms;
 
   &:hover {
