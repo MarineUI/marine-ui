@@ -1,7 +1,7 @@
 import React, { Children, Fragment, ReactNode } from 'react';
 import GlobalStyle from '../GlobalStyle';
 import tokens from '../theme/tokens';
-import { directionType, sizeObjType, sizeType, SpaceProps } from './interface';
+import { directionType, sizeType, SpaceProps } from './interface';
 import { SpaceStyle } from './style';
 
 const getMargin = (size: sizeType) => {
@@ -29,13 +29,14 @@ function getMarginWithSize(
   return {};
 }
 
-function getMarginWithSizeObj(
-  sizeObj: sizeObjType,
+function getMarginWithSizeArr(
+  sizeArr: sizeType[],
   direction: directionType,
   isLast: boolean,
   wrap: boolean
 ) {
-  const { marginRight, marginBottom } = sizeObj;
+  const marginRight = sizeArr[0];
+  const marginBottom = sizeArr[1];
 
   if (wrap) {
     return {
@@ -69,10 +70,10 @@ const Space = (props: SpaceProps) => {
 
   const getMarginStyle = (index: number) => {
     const isLastOne = childrenList.length - 1 === index;
-    if (typeof size !== 'object') {
+    if (!Array.isArray(size)) {
       return getMarginWithSize(direction, size, isLastOne);
     } else {
-      return getMarginWithSizeObj(size, direction, isLastOne, wrap);
+      return getMarginWithSizeArr(size, direction, isLastOne, wrap);
     }
   };
 
