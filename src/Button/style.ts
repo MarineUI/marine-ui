@@ -17,7 +17,7 @@ function getTextColor(props: ButtonProps, theme: Theme): string {
       }
       return props.color
         ? tokens.colors[onColor as OnColor][theme]
-        : tokens.colors.primary[theme];
+        : tokens.colors.onPrimary[theme];
     case 'outlined':
     case 'text':
     default:
@@ -64,16 +64,16 @@ function getCursor(props: ButtonProps): string {
 
 function getHoveredBgColor(props: ButtonProps, theme: Theme): string {
   switch (props.variant) {
-    case 'outlined':
-    case 'text':
-      return props.color
-        ? hexToRgba(tokens.colors[props.color][theme], tokens.opacity.hover)
-        : hexToRgba(tokens.colors.primary[theme], tokens.opacity.hover);
     case 'filled':
-    default:
       return props.color
         ? hexToRgba(tokens.colors[props.color][theme], 1 - tokens.opacity.hover)
         : hexToRgba(tokens.colors.primary[theme], 1 - tokens.opacity.hover);
+    case 'outlined':
+    case 'text':
+    default:
+      return props.color
+        ? hexToRgba(tokens.colors[props.color][theme], tokens.opacity.hover)
+        : hexToRgba(tokens.colors.primary[theme], tokens.opacity.hover);
   }
 }
 
