@@ -5,7 +5,7 @@ export type alignType = 'start' | 'center' | 'end' | 'baseline' | undefined;
 export type directionType = 'horizontal' | 'vertical' | undefined;
 export interface SpaceProps extends React.HTMLAttributes<HTMLDivElement> {
   direction?: directionType;
-  size?: sizeType;
+  size?: sizeType | Array<sizeType>;
   align?: alignType;
   wrap?: boolean;
 }
