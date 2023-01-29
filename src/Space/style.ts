@@ -30,13 +30,12 @@ function getDirection(direction: directionType) {
 export const SpaceStyle = styled.div<{ props: SpaceProps }>`
   .container {
     display: flex;
+    flex-wrap: wrap;
     align-items: ${({ props }) => getAlign(props.align)};
     flex-direction: ${({ props }) => getDirection(props.direction)};
   }
 
   .marine-space {
-    flex-wrap: wrap;
-
     display: inline-block;
   }
 `;

@@ -3,16 +3,54 @@ import React from 'react';
 
 export default function index1() {
   return (
-    <Space>
-      <MyButton color="primary" variant="filled">
-        按钮1
-      </MyButton>
-      <MyButton color="primary" variant="filled">
-        按钮2
-      </MyButton>
-      <MyButton color="primary" variant="filled">
-        按钮3
-      </MyButton>
-    </Space>
+    <>
+      <Space>
+        <MyButton variant="filled" size="small">
+          按钮1
+        </MyButton>
+        <MyButton variant="filled" size="medium">
+          按钮2
+        </MyButton>
+        <MyButton variant="filled" size="large">
+          按钮3
+        </MyButton>
+      </Space>
+      <br></br>
+      <Space align="center">
+        <MyButton variant="filled" size="small">
+          按钮1
+        </MyButton>
+        <MyButton variant="filled" size="medium">
+          按钮2
+        </MyButton>
+        <MyButton variant="filled" size="large">
+          按钮3
+        </MyButton>
+      </Space>
+      <br></br>
+      <Space align="end">
+        <MyButton variant="filled" size="small">
+          按钮1
+        </MyButton>
+        <MyButton variant="filled" size="medium">
+          按钮2
+        </MyButton>
+        <MyButton variant="filled" size="large">
+          按钮3
+        </MyButton>
+      </Space>
+      、<br></br>
+      <Space align="baseline">
+        <MyButton variant="filled" size="small">
+          按钮1
+        </MyButton>
+        <MyButton variant="filled" size="medium">
+          按钮2
+        </MyButton>
+        <MyButton variant="filled" size="large">
+          按钮3
+        </MyButton>
+      </Space>
+    </>
   );
 }

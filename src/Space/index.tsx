@@ -8,7 +8,7 @@ const getMargin = (size: sizeType) => {
   if (typeof size === 'number' || size === undefined) {
     return size;
   }
-  return tokens.space[size];
+  return tokens.space[size] ? tokens.space[size] : 'small';
 };
 
 function getMarginWithSize(
@@ -35,8 +35,8 @@ function getMarginWithSizeArr(
   isLast: boolean,
   wrap: boolean
 ) {
-  const marginRight = sizeArr[0];
-  const marginBottom = sizeArr[1];
+  const marginRight = getMargin(sizeArr[0]);
+  const marginBottom = getMargin(sizeArr[1]);
 
   if (wrap) {
     return {
