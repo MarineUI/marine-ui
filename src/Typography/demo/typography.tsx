@@ -1,7 +1,7 @@
+import { Typography } from 'marine-ui';
 import React from 'react';
-import Typography from '..';
 
-const typography = () => {
+export default function typography() {
   return (
     <>
       <Typography variant="display-large" tag="h1">
@@ -51,6 +51,4 @@ const typography = () => {
       </Typography>
     </>
   );
-};
-
-export default typography;
+}
